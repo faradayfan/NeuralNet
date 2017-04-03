@@ -93,3 +93,18 @@ double Neuron::sumDOW(const vector<Neuron> & nextLayer) const
 
 	return sum;
 }
+
+std::ostream & operator<<(std::ostream & out, const Neuron & n)
+{
+	cout << "Neuron Index: " << n.m_myIndex << "\n";
+	cout << "Gradient: " << n.m_gradient << "\n";
+	cout << "Gradient: " << n.m_outputVal << "\n";
+	for (unsigned i = 0; i < n.m_outputWeights.size(); ++i) {
+		cout << "Connection: " << i << "\n";
+		cout << "Weight: " << n.m_outputWeights[i].weight << "\n";
+		cout << "Delta Weight: " << n.m_outputWeights[i].deltaWeight << "\n";
+	}
+	
+	
+	return out;
+}

@@ -10,6 +10,7 @@
 #include <vector>
 #include <random>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public:
 	void calcHiddenGradients(const vector<Neuron> &nextLayer);
 	void feedForward(const vector<Neuron> &prevLayer);
 	void updateInputWeights(vector<Neuron> &prevLayer);
+	friend std::ostream& operator<<(std::ostream& out, const Neuron& n);
 private:
 	
 	static double eta;		// [0.0..1.0] overall net training rate

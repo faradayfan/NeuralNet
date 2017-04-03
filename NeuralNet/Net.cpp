@@ -101,3 +101,23 @@ void Net::getResults(vector<double>& resultVals) const
 		resultVals.push_back(m_layers.back()[n].getOutputVal());
 	}
 }
+
+std::ostream & operator<<(std::ostream & out, const Net & n)
+{
+
+	cout << "\n--Net--\n";
+	cout << "Error: " << n.m_error << "\n";
+	cout << "Average Error: " << n.m_recentAverageError << "\n";
+	cout << "Average Smoothing Factor: " << n.m_recentAverageSmoothingFactor << "\n";
+	cout << "\n--Neurons--\n";
+	for (unsigned i = 0; i < n.m_layers.size(); ++i) {
+		cout << "Layer: " << i << "\n";
+		for (unsigned j = 0; j < n.m_layers[i].size(); ++j) {
+			cout << n.m_layers[i][j] << "\n";
+		}
+	}
+	cout << "--End Neurons--" << "\n";
+
+
+	return out;
+}
